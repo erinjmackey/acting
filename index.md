@@ -16,13 +16,13 @@ title: Home
   </div>
 </section>
 
-<section class="container my-5" id="resume">
+<section class="container my-5 resume-section" id="resume">
   <h2 class="mb-4">Credits</h2>
   
   {% for section in site.data.credits %}
   <h3 class="h5 mt-4 text-uppercase text-muted">{{ section.category }}</h3>
   <table class="table table-hover">
-    <thead class="table-light">
+    <thead class="table">
       <tr>
         <th class="col-4">Production</th>
         <th class="col-3">Role</th>
@@ -44,7 +44,7 @@ title: Home
   {% endfor %}
 </section>
 
-<section class="container my-5" id="education">
+<section class="container my-5 resume-section" id="education">
   <h2 class="mb-4">Education / Training</h2>
   
   <table class="table table-hover">    
@@ -61,7 +61,7 @@ title: Home
   </table>
 </section>
 
-<section class="container my-5 bg-light p-4 rounded">
+<section class="container my-5 resume-section bg-light p-4 rounded">
   <h3>Special Skills</h3>
   <div class="row">
     <div class="col-md-4">
@@ -87,7 +87,7 @@ title: Home
   </div>
 </section>
 
-<section class="container my-5" id="gallery">
+<section class="container my-5 resume-section" id="gallery">
   <h2 class="mb-4">Gallery</h2>
   <div class="row g-3">
 	  {% assign gallery_files = site.static_files | where_exp: "file", "file.path contains 'assets/images/gallery'" | sort: "path" | reverse %}
@@ -116,57 +116,4 @@ title: Home
   </div>
 </div>
 
-<section class="container my-5" id="contact">
-  <div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
-      <div class="card shadow-sm">
-        <div class="card-body p-4">
-          <h2 class="text-center mb-4">Contact Erin</h2>
-          <div class="text-center mb-4">
-			  <p class="text-muted small uppercase fw-bold">Find me on</p>
-			  <div class="d-flex justify-content-center gap-3">
-				{% for link in site.data.social %}
-				<a href="{{ link.url }}" target="_blank" class="btn btn-outline-dark btn-sm shadow-sm">
-				  <i class="bi {{ link.icon }} me-1"></i> {{ link.name }}
-				</a>
-				{% endfor %}
-			  </div>
-			</div>
-			<hr class="my-4">
-          <form action="https://formspree.io/f/mreezzrw" method="POST">
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" name="name" class="form-control" id="name" required>
-            </div>
-            
-            <div class="mb-3">
-              <label for="email" class="form-label">Email Address</label>
-              <input type="email" name="_replyto" class="form-control" id="email" required>
-            </div>
-
-            <div class="mb-3">
-              <label for="subject" class="form-label">Subject</label>
-              <select name="subject" class="form-select">
-                <option value="Booking Inquiry">Booking Inquiry</option>
-                <option value="Audition Request">Audition Request</option>
-                <option value="General Inquiry">General Inquiry</option>
-              </select>
-            </div>
-
-            <div class="mb-3">
-              <label for="message" class="form-label">Message</label>
-              <textarea name="message" class="form-control" id="message" rows="5" required></textarea>
-            </div>
-
-            <input type="text" name="_gotcha" style="display:none" />
-
-            <div class="d-grid">
-              <button type="submit" class="btn btn-dark btn-lg">Send Message</button>
-            </div>
-          </form>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+{% include contact.html %}

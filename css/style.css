@@ -1,6 +1,12 @@
 :root {
 
-  --bs-primary-rgb: 232, 228, 240;
+--bs-primary-rgb: 232, 228, 240;
+--icon-lilac: #c6add5ff;
+--icon-russian-violet: #44255aff;
+--icon-purpureus: #915da7ff;
+--icon-plum: #904098ff;
+--icon-purpureus-2: #a953acff;
+--bs-body-bg: transparent !important;
 
 }
 
